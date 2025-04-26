@@ -1,0 +1,1009 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>FoodPanda Clone</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      width: 80%vw;
+    }
+
+    .top-bar {
+      background-color: #d81b60;
+      color: white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 10px 20px;
+      font-size: 14px;
+    }
+
+    .top-bar .signup-btn {
+      background-color: white;
+      color: #d81b60;
+      border: none;
+      padding: 5px 15px;
+      font-weight: bold;
+      border-radius: 5px;
+    }
+
+    .top-bar .close-btn {
+      background: none;
+      border: none;
+      font-size: 18px;
+      color: white;
+    }
+
+    .navbar {
+      background-color: white;
+      padding: 10px 0;
+      box-shadow: 0px 1px 5px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-brand {
+      font-weight: bold;
+      color: #d81b60 !important;
+    }
+
+    .navbar-brand img {
+      height: 30px;
+      margin-right: 8px;
+    }
+
+    .nav-link {
+      color: #000 !important;
+      font-weight: 500;
+    }
+
+    .btn-signup {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+      padding: 5px 12px;
+      font-size: 14px;
+      border-radius: 5px;
+    }
+
+    .hero-section {
+      padding: 60px 0;
+      background-color: #f8f8f8;
+    }
+
+    .hero-section h1 {
+      font-weight: bold;
+      font-size: 2rem;
+    }
+
+    .input-group {
+      max-width: 500px;
+    }
+
+    .btn-locate {
+      border: 1px solid #ccc;
+      background-color: #fff;
+    }
+
+    .btn-find-food {
+      background-color: #d81b60;
+      color: white;
+      border: none;
+    }
+
+    .right-img {
+      max-width: 100%;
+      height: auto;
+    }
+
+    /* SECTION 2 CSS */
+
+    .sec-2-fst-p {
+      margin-left: 20px;
+      font-size: 30px;
+      font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      font-weight: bold;
+    }
+
+    .sec2-img {
+      width: 100%;
+      height: 350px;
+      overflow: hidden;
+
+    }
+
+
+    /* CSS FOR  CUSTOM CARD */
+
+    .card-body {
+      /* position: relative; */
+    }
+
+    .custom-card {
+      position: relative;
+      top: -200px;
+
+      border-radius: 15px;
+      background-color: #fff;
+      padding: 40px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      max-width: 600px;
+      height: 380px;
+      margin: 50px 110px;
+    }
+
+    @media screen and (max-width: 768px) {
+      .custom-card {
+         /* margin: 20px auto; */
+        /* width: 90%;  */
+        height: auto;
+      }
+      
+    }
+
+    .custom-btn {
+      background-color: #e21b70;
+      color: #fff;
+      border: none;
+      padding: 10px 25px;
+      border-radius: 10px;
+      font-weight: bold;
+    }
+
+    .custom-btn:hover {
+      background-color: #c31864;
+    }
+
+    /* section 4 */
+
+    .MMM {
+      margin-top: -200px !important;
+      transform: scaleX(0.3s);
+      
+    }
+
+    .city-box {
+      position: relative;
+      overflow: hidden;
+      border-radius: 20px;
+      margin-bottom: 20px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    .city-box img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 20px;
+    }
+
+    .city-label {
+      position: absolute;
+      bottom: 10px;
+      left: 10px;
+      background-color: white;
+      padding: 6px 14px;
+      border-radius: 10px;
+      font-weight: 600;
+      box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.2);
+    }
+
+
+    /* SECTION 5 CSS */
+
+    .bg-pink {
+      height: 320px;
+      background-color: #ec008c;
+      overflow: visible !important;
+      position: relative;
+    }
+    @media screen and (max-width: 768px) {
+      .bg-pink {
+        height: auto;
+      }
+      .phone-img {
+        margin-top: 10px !important
+      }
+      
+    }
+    
+
+    .qr-img {
+      width: 100px;
+      height: 100px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .store-btn {
+      height: 40px;
+      object-fit: contain;
+    }
+
+    .phone-img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 20px;
+      margin-top: -80px;
+      position: relative;
+      z-index: 1;
+
+    }
+
+
+    /* Section 6 Styles */
+    .sec6-wrapper {
+      position: relative;
+    }
+
+    .sec6-container {
+      background-image: url('./images/home-corporate-pk.jpg');
+      background-size: cover;
+      background-position: center;
+      height: 400px;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .sec6-container h1 {
+      color: #000;
+      font-size: 2.5rem;
+      font-weight: bold;
+      position: absolute;
+      top: 20px;
+      left: 20px;
+    }
+
+    .sec6-card-overlay {
+      max-width: 400px;
+      margin: 0 auto;
+      position: absolute;
+      bottom: -50px;
+      left: 200px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      z-index: 10;
+    }
+    @media screen and (max-width: 768px) {
+      .sec6-card-overlay {
+        left: 0;
+        right: 0;
+        margin: 0 auto;
+        bottom: -20px;
+      }
+      
+    }
+
+    .sec6-btn-custom {
+      background-color: #ff2d55;
+      color: #fff;
+      border: none;
+    }
+
+    .sec6-btn-custom:hover {
+      background-color: #e02548;
+    }
+
+
+    /* Section 7 Styles */
+    .sec7-container {
+      padding: 50px 0;
+      background-color: #fff;
+      /* White background as seen in the image */
+    }
+
+    .sec7-heading {
+      font-size: 2.5rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 20px;
+    }
+
+    .sec7-text {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 30px;
+    }
+
+    .sec7-subheading {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: #000;
+      margin-top: 40px;
+      margin-bottom: 20px;
+    }
+
+    .sec7-list {
+      list-style: none;
+      padding-left: 0;
+      margin-bottom: 30px;
+    }
+
+    .sec7-list li {
+      font-size: 1.1rem;
+      color: #333;
+      margin-bottom: 10px;
+      display: flex;
+      align-items: flex-start;
+    }
+
+    .sec7-checkmark {
+      color: #ff2d55;
+      /* Pink color for checkmarks */
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    .sec7-faq-question {
+      font-size: 1.3rem;
+      font-weight: bold;
+      color: #000;
+      margin-top: 20px;
+      margin-bottom: 10px;
+    }
+
+    .sec7-faq-answer {
+      font-size: 1.1rem;
+      color: #333;
+      line-height: 1.6;
+      margin-bottom: 20px;
+    }
+
+    .sec7-closing {
+      font-size: 1.1rem;
+      font-weight: bold;
+      /* Matches the bold style in the image */
+      color: #333;
+      margin-top: 30px;
+    }
+
+
+    /* Section 8: Footer Styles */
+    .sec8-footer {
+      padding: 40px 0;
+      background-color: #fff;
+      border-top: 1px solid #e0e0e0;
+      /* Light top border */
+      border-bottom: 1px solid #f0f0f0;
+      /* Lighter bottom border */
+    }
+
+    .sec8-top-links {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .sec8-link {
+      color: #666;
+      font-size: 0.9rem;
+      text-decoration: none;
+      margin: 0 5px;
+      transition: font-weight 0.3s ease;
+      /* Smooth transition for hover effect */
+    }
+
+    .sec8-link:hover {
+      font-weight: bold;
+      /* Makes the link bolder on hover */
+      color: #666;
+    }
+
+    .sec8-copyright {
+      color: #666;
+      font-size: 0.9rem;
+      margin-bottom: 20px;
+    }
+
+    .sec8-heading {
+      font-size: 1.2rem;
+      font-weight: bold;
+      color: #000;
+      margin-bottom: 15px;
+    }
+
+    .sec8-list {
+      list-style: none;
+      padding-left: 0;
+    }
+
+    .sec8-list li {
+      margin-bottom: 10px;
+    }
+
+    .sec8-main-content {
+      margin-bottom: 30px;
+    }
+
+    .sec8-bottom {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding-top: 20px;
+    }
+
+    .sec8-logos {
+      display: flex;
+      gap: 10px;
+    }
+
+    .sec8-logo {
+      height: 30px;
+    }
+
+    .sec8-social {
+      display: flex;
+      gap: 15px;
+    }
+
+    .sec8-social-link {
+      color: #666;
+      font-size: 1.2rem;
+      text-decoration: none;
+      transition: font-weight 0.3s ease;
+    }
+
+    .sec8-social-link:hover {
+      font-weight: bold;
+      color: #666;
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Top Bar -->
+  <div class="top-bar">
+    <div>
+      <img src="./images/logo.png" alt="icon" style="height: 20px; margin-right: 10px;">Do you need a business account?
+    </div>
+    <div>
+      <button class="signup-btn">SIGN UP NOW</button>
+      <!-- <button class="close-btn">&times;</button> -->
+    </div>
+  </div>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center" href="#">
+        <img style="border-radius: 2px;" src="./images/logo.png" alt="logo">
+        foodpanda
+      </a>
+      <div class="ms-auto d-flex align-items-center gap-3">
+        <button class="btn btn-outline-dark btn-sm">Log in</button>
+        <button class="btn-signup btn-sm">Sign up</button>
+        <div class="dropdown">
+          <button class="btn btn-light dropdown-toggle" type="button" data-bs-toggle="dropdown">EN</button>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">EN</a></li>
+            <li><a class="dropdown-item" href="#">Other</a></li>
+          </ul>
+        </div>
+        <img src="./images/cart.jpg" alt="Cart" style="width: 20px;">
+
+
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container">
+      <div class="row align-items-center">
+        <!-- Left Side -->
+        <div class="col-md-6 mb-4 mb-md-0">
+          <h1>Enjoy discounts on your first order</h1>
+          <div class="input-group mt-4">
+            <input type="text" class="form-control" placeholder="Enter your address">
+            <button class="btn btn-locate" type="button">
+              <i class="bi bi-geo-alt-fill"></i> Locate me
+            </button>
+            <button class="btn btn-find-food" type="button">Find food</button>
+          </div>
+        </div>
+        <!-- Right Side -->
+        <div class="col-md-6 text-center">
+          <img src="./images/panda-background.jpg" alt="Panda" class="right-img">
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <!-- Sectjion 2 -->
+  <section>
+    <p class="sec-2-fst-p">You prepare the food, we handle the rest</p>
+    <img class="sec2-img" src="./images/home-vendor-pk.jpg" alt="home-vendor-pk ">
+  </section>
+  <!-- section  3 -->
+  <section class="custom-card text-start">
+    <div class="card-body">
+      <h3 class="fw-bold">List your restaurant or shop on foodpanda</h3>
+      <p class="mt-3">Would you like millions of new customers to enjoy your amazing food and groceries? So would we!
+      </p>
+      <p>It's simple: we list your menu and product lists online, help you process orders, pick them up, and deliver
+        them to hungry pandas – in a heartbeat!</p>
+      <p>Interested? Let's start our partnership today!</p>
+      <button class="custom-btn mt-3">Get started</button>
+    </div>
+  </section>
+
+  <!-- section 4 -->
+
+  <div class="container py-5 mt-1 MMM">
+    <h2 class="fw-bold mb-4">Find us in these cities and many more!</h2>
+    <div class="row">
+
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <a href="youtube.com">
+          <img src="./images/islamabad.jpg" alt="Islamabad"> </a>
+          <div class="city-label">Islamabad</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Karachi.JPG" alt="Karachi">
+          <div class="city-label">Karachi</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Lahore.jpg" alt="Lahore">
+          <div class="city-label">Lahore</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/faisalabad.jpeg" alt="Faisalabad">
+          <div class="city-label">Faisalabad</div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Rawalpindi.jpg" alt="Rawalpindi">
+          <div class="city-label">Rawalpindi</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Abbotabad.jpg" alt="Abbottabad">
+          <div class="city-label">Abbottabad</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Bahawalpur.jpg" alt="Bahawalpur">
+          <div class="city-label">Bahawalpur</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/dera ghazi khan.jpg" alt=" Dera Ghazi Khan">
+          <div class="city-label">Dera Ghazi Khan</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Gujranwala.jpg" alt="Gujranwala">
+          <div class="city-label">Gujranwala</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Gujrat.jpg" alt="Gujrat">
+          <div class="city-label">Gujrat</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Hyderabad.jpg" alt="Hyderabad">
+          <div class="city-label">Hyderabad</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/hjelum.jpg" alt="Jhelum">
+          <div class="city-label">Jhelum</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Kamoki.jpg" alt="Kamoki City">
+          <div class="city-label">Kamoke</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Larkana.jpg" alt="Larkana City">
+          <div class="city-label">Larkana</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Mangla.jpg" alt="Mangla City">
+          <div class="city-label">Mangla</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Mardan.jpg" alt="Mardan City">
+          <div class="city-label">Mardan</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Multan.jpg" alt="Multan City">
+          <div class="city-label">Multan</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Murree-1-scaled.jpg" alt="Murree City">
+          <div class="city-label">Murree</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Okara.jpg" alt="Okara City">
+          <div class="city-label">Okara</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-PanoAqil.jpg" alt="Pano Aqil City">
+          <div class="city-label">Pano Aqil</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Peshawar.jpg" alt="Peshawar City">
+          <div class="city-label">Peshawar</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-Quetta.jpg" alt="Quetta City">
+          <div class="city-label">Quetta</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-RahimYarKhan.jpg" alt="Rahim Yaar Khan City">
+          <div class="city-label">Rahim Yaar Khan</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-Sadiqabad.jpg" alt="Sadiqabad City">
+          <div class="city-label">Sadiqabad</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="images/city-tile-Sahiwal.jpg" alt="Sahiwal City">
+          <div class="city-label">sahiwal</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-Sargodha.jpg" alt="Sargodha City">
+          <div class="city-label">Sargodha</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-Sheikhupura.jpg" alt="Sheikhupura City">
+          <div class="city-label">Sheikhupura</div>
+        </div>
+      </div>
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Sialkot.jpg" alt="Sialkot City">
+          <div class="city-label">Sialkot</div>
+        </div>
+      </div>
+
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/Sukkur.jpg" alt="Sukkur City">
+          <div class="city-label">Sukkur</div>
+        </div>
+      </div>
+
+
+
+      <div class="col-12 col-sm-6 col-lg-3">
+        <div class="city-box">
+          <img src="./images/city-tile-WahhCannt.jpg" alt="Wah Cantt City">
+          <div class="city-label">Wah Cantt</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Section 5 -->
+
+
+
+  <section class="download-section py-5">
+    <div class="container">
+      <h2 class="fw-bold mb-4">Put us in your pocket</h2>
+      <div class="row align-items-center rounded-4 bg-pink p-4">
+
+        <!-- Left Side -->
+        <div class="col-lg-6">
+          <h3 class="text-white fw-semibold mb-3">Download the food and groceries you love</h3>
+          <div class="d-flex  gap-3">
+            <img src="./images/Qr.png" alt="QR Code" class="qr-img">
+            <p class="text-white mb-3">It's all at your fingertips – the restaurants and shops you love. Find the right
+              food and groceries to
+              suit your mood, and make the first bite last. Go ahead, download us.
+            </p>
+          </div>
+          <!-- App Store Buttons -->
+          <div class="d-flex gap-2 flex-wrap">
+            <img style="margin-top: 6px;" src="./images/app-store.png" alt="App Store" class="store-btn">
+            <img style="margin-top: 6px;" src="./images/Google_Play_Store_badge_EN.png" alt="Google Play"
+              class="store-btn">
+            <img style="margin-top: 6px;" src="./images/App-Gallery.png" class="store-btn" style="height:40px;">
+          </div>
+        </div>
+
+        <!-- Right Side: Phones -->
+        <div class="col-lg-6 text-center mt-4 mt-lg-0">
+          <img src="./images/Right-phone.jpg" alt="App Phones" class="img-fluid phone-img">
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+
+  <!-- Section 6 Wrapper -->
+  <h1>Take your office out to lunch</h1>
+  <div class="sec6-wrapper">
+    <section class="sec6-container">
+    </section>
+    <div class="card sec6-card-overlay">
+      <div class="card-body">
+        <h5 class="card-title">foodpanda for business</h5>
+        <p class="card-text">
+          Order lunch or fuel for work-from-home, late nights in the office, corporate events, client meetings, and much
+          more.
+        </p>
+        <a href="#" class="btn sec6-btn-custom">Get started</a>
+      </div>
+    </div>
+  </div>
+
+  <br>
+  <br>
+  <!-- Section 7 -->
+  <section class="sec7-container">
+    <div class="container">
+      <h1 class="sec7-heading">Order food and groceries online from the best restaurants and shops on foodpanda</h1>
+      <p class="sec7-text">
+        Are you hungry? Did you have a long and stressful day? Interested in getting a cheesy pizza delivered to your
+        office or looking to avoid the weekly shop? Then foodpanda Pakistan is the right destination for you! foodpanda
+        offers you a long and detailed list of the best restaurants and shops near you to help make your every day
+        easier.
+      </p>
+
+      <h2 class="sec7-subheading">What's new?</h2>
+      <ul class="sec7-list">
+        <li><span class="sec7-checkmark">✔</span> Wide variety of restaurants and shops, an abundance of cuisines &
+          products.</li>
+        <li><span class="sec7-checkmark">✔</span> High quality delivery service.</li>
+        <li><span class="sec7-checkmark">✔</span> Live chat feature to give App users instant help when they need it.
+        </li>
+        <li><span class="sec7-checkmark">✔</span> NEW: foodpanda grocery delivery! Discover the best shops, pharmacies,
+          bakeries and more near you.</li>
+      </ul>
+
+      <h2 class="sec7-subheading">Frequently Asked Questions</h2>
+      <div class="sec7-faq">
+        <h3 class="sec7-faq-question">How can I get foodpanda delivery?</h3>
+        <p class="sec7-faq-answer">
+          To get foodpanda delivery, simply locate the restaurants and shops near you by typing in your address, browse
+          through a variety of restaurants and cuisines, check menus and prices, choose your dishes and add them to the
+          basket. Now you only need to checkout and make the payment. Soon your delicious food will arrive at your
+          doorstep!
+        </p>
+
+        <h3 class="sec7-faq-question">Which takeout restaurants open now near me?</h3>
+        <p class="sec7-faq-answer">
+          You can check which takeout restaurants are open now near you by simply typing your address in the location
+          bar on foodpanda and pressing search. You will see all the available restaurants and shops that deliver to
+          your area.
+        </p>
+
+        <h3 class="sec7-faq-question">Does foodpanda deliver 24 hours?</h3>
+        <p class="sec7-faq-answer">
+          Yes, foodpanda in Pakistan delivers 24 hours. However, many restaurants may be unavailable for a late-night
+          delivery. Please check which places in Pakistan deliver to you within 24 hours by using your address. You can
+          also order groceries 24 hours a day via pandamart.
+        </p>
+
+        <!-- Additional FAQ Content -->
+        <h3 class="sec7-faq-question">Can you pay cash for foodpanda?</h3>
+        <p class="sec7-faq-answer">
+          Yes, you can pay cash on delivery for foodpanda in Pakistan.
+        </p>
+
+        <h3 class="sec7-faq-question">How can I pay foodpanda online?</h3>
+        <p class="sec7-faq-answer">
+          You can pay online while ordering at foodpanda Pakistan by using a credit or debit card or PayPal.
+        </p>
+
+        <h3 class="sec7-faq-question">Can I order foodpanda for someone else?</h3>
+        <p class="sec7-faq-answer">
+          Yes, foodpanda Pakistan allows you to place an order for someone else. During checkout, just update the name
+          and delivery address of the person you're ordering for. Please keep in mind that if the delivery details are
+          not correct and the order cannot be delivered, we won’t be able to process a refund.
+        </p>
+
+        <h3 class="sec7-faq-question">How much does foodpanda charge for delivery?</h3>
+        <p class="sec7-faq-answer">
+          Delivery fee charged by foodpanda in Pakistan depends on many operational factors, most of all - location and
+          the restaurant you are ordering from. You can always check the delivery fee while forming your order. Besides,
+          you can filter the restaurants by clicking on the "Free Delivery" icon at the top of your restaurant listing.
+        </p>
+
+        <h3 class="sec7-faq-question">What restaurants let you order online?</h3>
+        <p class="sec7-faq-answer">
+          There are hundreds of restaurants on foodpanda Pakistan that let you order online. For example, KFC,
+          McDonald’s, Pizza Hut, OPT, Hardee’s, Domino’s, Kababjees and many-many more! In order to check all the
+          restaurants near you that deliver, just type in your address and discover all the available places.
+        </p>
+
+        <h3 class="sec7-faq-question">Does foodpanda have minimum order?</h3>
+        <p class="sec7-faq-answer">
+          Yes, many restaurants have a minimum order. The minimum order value depends on the restaurant you order from
+          and is indicated during your ordering process.
+        </p>
+
+        <h3 class="sec7-faq-question">What the difference between delivery and Pick-Up?</h3>
+        <p class="sec7-faq-answer">
+          If you choose delivery, a foodpanda rider will collect your order from the restaurant and take it to your
+          chosen delivery address. If you choose Pick-Up, you can takeaway your food directly from the restaurant for
+          extra savings – and jump the front of the queue. Pick-Up orders are available for restaurants only.
+        </p>
+
+        <p class="sec7-text sec7-closing">
+          Order food and groceries online with foodpanda now and enjoy a great dining experience!
+        </p>
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- Section 8: Footer -->
+  <footer class="sec8-footer">
+    <div class="container">
+      <div class="sec8-top-links">
+        <a href="#" class="sec8-link">Laos</a> |
+        <a href="#" class="sec8-link">Cambodia</a> |
+        <a href="#" class="sec8-link">Myanmar</a> |
+        <a href="#" class="sec8-link">Thailand</a> |
+        <a href="#" class="sec8-link">Hong Kong</a> |
+        <a href="#" class="sec8-link">Taiwan</a> |
+        <a href="#" class="sec8-link">Malaysia</a> |
+        <a href="#" class="sec8-link">Philippines</a> |
+        <a href="#" class="sec8-link">Singapore</a> |
+        <a href="#" class="sec8-link">Bangladesh</a>
+      </div>
+
+      <div class="row sec8-main-content">
+        <div class="col-md-3">
+          <p class="sec8-copyright">© foodpanda</p>
+        </div>
+
+        <!-- Press Column -->
+        <div class="col-md-3">
+          <h5 class="sec8-heading">Press</h5>
+          <ul class="sec8-list">
+            <li><a href="#" class="sec8-link">pandapay Terms and Conditions</a></li>
+            <li><a href="#" class="sec8-link">Security</a></li>
+            <li><a href="#" class="sec8-link">Careers</a></li>
+            <li><a href="#" class="sec8-link">Cashback Terms and Conditions</a></li>
+            <li><a href="#" class="sec8-link">Partner with Us</a></li>
+            <li><a href="#" class="sec8-link">All cities</a></li>
+            <li><a href="#" class="sec8-link">pandapro - Monthly Subscription Programme</a></li>
+            <li><a href="#" class="sec8-link">Ramadan deals</a></li>
+            <li><a href="#" class="sec8-link">Areas delivered in Lahore</a></li>
+          </ul>
+        </div>
+
+        <!-- Help Center Column -->
+        <div class="col-md-3">
+          <h5 class="sec8-heading">Help Center</h5>
+          <ul class="sec8-list">
+            <li><a href="#" class="sec8-link">Terms and Conditions</a></li>
+            <li><a href="#" class="sec8-link">Download foodpanda Apps</a></li>
+            <li><a href="#" class="sec8-link">Suggest a Restaurant</a></li>
+            <li><a href="#" class="sec8-link">All cuisines</a></li>
+            <li><a href="#" class="sec8-link">pandago - Request a Rider</a></li>
+            <li><a href="#" class="sec8-link">Update on COVID-19 in Pakistan</a></li>
+            <li><a href="#" class="sec8-link">foodpanda Home Chef</a></li>
+            <li><a href="#" class="sec8-link">Areas delivered in Karachi</a></li>
+            <li><a href="#" class="sec8-link">Areas delivered in Islamabad</a></li>
+          </ul>
+        </div>
+
+        <!-- Refund Column -->
+        <div class="col-md-3">
+          <h5 class="sec8-heading">Refund with pandapay</h5>
+          <ul class="sec8-list">
+            <li><a href="#" class="sec8-link">Privacy policy</a></li>
+            <li><a href="#" class="sec8-link">Human rights policy</a></li>
+            <li><a href="#" class="sec8-link">Corporate Customer</a></li>
+            <li><a href="#" class="sec8-link">foodpanda Magazine</a></li>
+            <li><a href="#" class="sec8-link">foodpanda Vouchers & Coupons</a></li>
+            <li><a href="#" class="sec8-link">pandamart Grocery Delivery</a></li>
+            <li><a href="#" class="sec8-link">Become an Affiliate</a></li>
+            <li><a href="#" class="sec8-link">Areas delivered in Gujranwala</a></li>
+            <li><a href="#" class="sec8-link">Areas delivered in Peshawar</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <!-- Bottom Section (Logos and Social Icons) -->
+      <div class="sec8-bottom">
+        <div class="sec8-logos">
+          <img src="./images/logo.png" alt="foodpanda logo" class="sec8-logo"> &nbsp; &nbsp;
+          <img src="./images/Delivery-hero.png" alt="delivery hero logo" class="sec8-logo">
+        </div>
+        <div class="sec8-social">
+          <a href="#" class="sec8-social-link"><i class="fa-brands fa-instagram"></i></a>
+          <a href="#" class="sec8-social-link"><i class="fa-brands fa-facebook-f"></i></a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>
